@@ -148,6 +148,67 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.lxlx.xyz/2021/12/22/%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LeiXin">
+      <meta itemprop="description" content="对前端学习的记录">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leixinxinxin's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/22/%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/" class="post-title-link" itemprop="url">用户权限校验</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-22 18:27:13 / 修改时间：18:30:00" itemprop="dateCreated datePublished" datetime="2021-12-22T18:27:13+08:00">2021-12-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-服务端限制-无token不许访问"><a href="#1-服务端限制-无token不许访问" class="headerlink" title="1.服务端限制  无token不许访问"></a>1.服务端限制  无token不许访问</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">http.interceptors.request.use(config=&gt;&#123;</span><br><span class="line">   if(localStorage.token)&#123;</span><br><span class="line">       config.headers.Authorization =&#x27;Bearer &#x27;+ localStorage.token</span><br><span class="line">   &#125;</span><br><span class="line">   return config</span><br><span class="line">  &#125;,err=&gt;&#123;</span><br><span class="line">   return Promise.reject(err)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-检验用户是否登录-获取token，找用户"><a href="#2-检验用户是否登录-获取token，找用户" class="headerlink" title="2.检验用户是否登录 获取token，找用户"></a>2.检验用户是否登录 获取token，找用户</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const token = String(req.headers.authorization||&#x27;&#x27;).split(&#x27; &#x27;).pop()</span><br><span class="line">const &#123;id&#125; = jwt.verify(token,req.app.get(&#x27;secret&#x27;)) </span><br></pre></td></tr></table></figure>
+<h4 id="3-验证token"><a href="#3-验证token" class="headerlink" title="3.验证token"></a>3.验证token</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.user = await AdminUser.findById(id)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.lxlx.xyz/2021/12/22/%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -268,7 +329,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
