@@ -187,7 +187,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">graph LR</span><br><span class="line">A(CSS布局)--&gt;B1(flex布局)</span><br><span class="line">A--&gt;B2(grid布局)</span><br><span class="line">B1--&gt;F1&#123;容器属性&#125;</span><br><span class="line">B1--&gt;F2&#123;项目属性&#125;</span><br><span class="line">F1--&gt;C1(开启设置)</span><br><span class="line">B2--&gt;D1(开启设置)</span><br><span class="line">F1--&gt;C2(方向设置)</span><br><span class="line">F1--&gt;C4(位置设置)</span><br><span class="line">F1--&gt;C5(空间比例设置)</span><br><span class="line">F2--&gt;E1(排序设置)</span><br><span class="line">F2--&gt;E2(自身对齐方式)</span><br><span class="line">F2--&gt;E3(自身的放大缩小 对剩余空间的分配)</span><br><span class="line">F1--&gt;C3(换行)</span><br><span class="line">B2--&gt;G1(创建网格)</span><br><span class="line">B2--&gt;G2(网格空间)</span><br><span class="line">B2--&gt;G3(网格间隙)</span><br><span class="line">B2--&gt;G4(网格项目定位置)</span><br></pre></td></tr></table></figure>
+          <pre class="mermaid">
+graph LR
+A(CSS布局)-->B1(flex布局)
+A-->B2(grid布局)
+B1-->F1{容器属性}
+B1-->F2{项目属性}
+F1-->C1(开启设置)
+B2-->D1(开启设置)
+F1-->C2(方向设置)
+F1-->C4(位置设置)
+F1-->C5(空间比例设置)
+F2-->E1(排序设置)
+F2-->E2(自身对齐方式)
+F2-->E3(自身的放大缩小 对剩余空间的分配)
+F1-->C3(换行)
+B2-->G1(创建网格)
+B2-->G2(网格空间)
+B2-->G3(网格间隙)
+B2-->G4(网格项目定位置)</pre>
 <h4 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h4><ol>
 <li><p>开启设置：<code>父元素 &#123;display:flex&#125;</code></p>
 </li>
@@ -611,6 +629,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
   
